@@ -10,12 +10,11 @@ function draw() {
   text("Hello World", 20, 20);
 
   for (let i = 0; i < 14; i++) {
-    if (i == 7) {
-      fill("blue");
+    if (i == 6) {
+      fill("red");
     } else {
       fill("white");
     }
-
     rect(i * 50, 0, 50, 50);
   }
 }
@@ -23,4 +22,10 @@ function draw() {
   for (let i = 0; i < 100; i++) {
       console.log("Hello World");
   }
+
+  for (let i = 0; i < 5; i++) {
+    console.log(i);
+  }
+
+
   console.log("Hoe gaat het?");
