@@ -1,12 +1,16 @@
+// bij workshopje button maken
+let geklikt = false;
+
 function setup() {
     createCanvas(800, 600);
+
+    // bij workshopje button maken
     let button = createButton("klik me!");
     button.position(200, 100);
     button.mousePressed(plaatje);
 }
 
-let geklikt = false;
-
+// bij workshopje button maken
 function plaatje() {
     //    console.log("is geklikt")
     geklikt = !geklikt;
@@ -23,12 +27,18 @@ function draw() {
     //   }
     // }
 
+    // simpele 1-dimensionale array
     let kleuren = ["red", "blue", "yellow", "green", "black"];
+    // hardcoded een item weergeven
+    // console.log(kleuren[2])
+
+    // automatisch alle items weergeven
     // console.log(kleuren.length)
     for (let i = 0; i < kleuren.length; i++) {
         // console.log(kleuren[i]);
     }
 
+    // simpele 2-dimensionale array
     let dieren = [
         ["Goudvis", "zalm", "clownvis", "Haai", "Tonijn"],
         ["Adelaar", "Papegaai", "Mees", "Kolibrie", "Uil"],
@@ -40,8 +50,11 @@ function draw() {
     let offset = 50;
     let yDiff = 50;
 
+    // hardcode items weergeven
     // text(dieren[0][0], 50, offset);
     // text(dieren[0][3], 50, (offset += yDiff));
+
+    // automatisch alle items weergeven
     for (let y = 0; y < dieren.length; y++) {
         for (let x = 0; x < dieren[y].length; x++) {
             //text(dieren[y][x], 150 * x, 50 * y + 100);
