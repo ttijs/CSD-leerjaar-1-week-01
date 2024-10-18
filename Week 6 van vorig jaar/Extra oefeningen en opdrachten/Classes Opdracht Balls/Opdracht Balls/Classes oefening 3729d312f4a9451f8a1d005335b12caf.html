@@ -1,0 +1,694 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Classes oefening</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3729d312-f4a9-451f-8a1d-005335b12caf" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_10.jpg" style="object-position:center 40%"/><h1 class="page-title">Classes oefening</h1><p class="page-description"></p></header><div class="page-body"><p id="2f8df15a-c331-4b4b-afc8-deeea1bf880e" class="">Met deze oefening ga je aan de slag met classes. Classes zijn een manier om je code op te breken in losse objecten, die elk hun eigen logica en gedrag bevatten. Veel talen, zoals C# en javascript, bieden een vorm van classes aan. Volg de stappen en lees de instructies goed door. Kom je er niet uit? Check dan eerst met je leerteam en stap vervolgens naar je docent.</p><p id="3a028f76-6530-490a-b190-46ff8da27393" class="">
+</p><figure id="bf902f75-b6e7-497b-bbfb-a884412249fd" class="image" style="text-align:left"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/balls_06.gif"><img style="width:384px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/balls_06.gif"/></a><figcaption>Mogelijk eindresultaat</figcaption></figure><h2 id="1ed92554-1418-45b7-ba36-397131bf5b08" class="">Stap 1:</h2><p id="5a2e3252-7094-49c1-a01e-13746f7d2022" class="">Maak een nieuwe sketch aan met een canvas van 400 bij 400. 
+Kies een leuke achtergrondkleur. Ik heb (30,40,80) gebruikt.</p><h2 id="62b7fc63-32ac-4bd6-a7a1-ff5b6459df76" class="">Stap 2:</h2><p id="b20b016e-2c65-4209-98a5-cc9f2872bee5" class="">Teken een balletje in de draw() functie. Gebruik daarbij de volgende variabelen:</p><ul id="3cd1c477-a57a-49f1-91d7-83e9d9e8a704" class="bulleted-list"><li style="list-style-type:disc">let x: 200</li></ul><ul id="5dced324-bbd5-4728-b6bf-3bca75c53800" class="bulleted-list"><li style="list-style-type:disc">let y: 200</li></ul><ul id="09f62817-5462-41b3-92c0-86e6f7abfe25" class="bulleted-list"><li style="list-style-type:disc">let size: 30</li></ul><h2 id="228cf4f7-fd1c-4398-a500-9da78492962a" class="">Stap 3:</h2><figure id="9d785a50-9900-4511-a267-2a7ae29b2a3f" class="image" style="text-align:left"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/ball_01.gif"><img style="width:240px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/ball_01.gif"/></a><figcaption>Geen perfect loopje :(</figcaption></figure><p id="42cf05a7-a5a2-425a-b78a-d615f37062a1" class="">Zorg ervoor dat het balletje op de x as op en neer beweegt. Ik heb daarvoor twee nieuwe variabelen toegevoegd:</p><ul id="d7adad55-82ad-4b39-8dbb-4039d6486bed" class="bulleted-list"><li style="list-style-type:disc">let speed: voor de snelheid.</li></ul><ul id="4792eb6c-7bbc-4531-91ab-b132d70dfaf4" class="bulleted-list"><li style="list-style-type:disc">let xDirection: Deze zet ik op 1 of -1 om de richting bij te houden.</li></ul><p id="cc514fe0-323d-49b3-90a3-66b0a849ea4d" class="">
+</p><pre id="a58b215a-0227-4ee4-afa9-c79da49b9aec" class="code"><code>//Als de bal de rechterkant raakt
+	//Zet de xDirection op -1.
+//Als de bal de linkerkant raakt.
+	//Zet de xDirection op 1.
+
+//Het berekenen van de x positie wordt dan:
+//x += speed * xDirection</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="28b028f4-24a3-4803-8f90-3fafc458051c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Mooi balletje! Maar de klant vroeg om 50 balletjes. Tijd om van het balletje een eigen class te maken, zodat we er meerdere aan kunnen maken.</div></figure><h2 id="21a45709-82e4-433b-9485-cebecc9af3d9" class="">Stap 4: </h2><p id="abc159c0-eeb5-4b9c-a550-f8dcf48b9cbf" class="">Maak een nieuw bestand aan in je project genaamd ball.js en voeg deze toe aan je index.html. Doe je dit niet, dan kan sketch.js straks niet bij het ball.js bestand.</p><div id="4d08a3fc-e5b4-467d-a812-6481fe72cdd6" class="column-list"><div id="dd0efc6f-5cfa-4b6b-be40-63be91cca29e" style="width:37.5%" class="column"><figure id="9653295a-6421-4049-a385-42b3b7cfd3a1" class="image"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/ball_02.gif"><img style="width:240px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/ball_02.gif"/></a></figure></div><div id="208c6170-1920-48b0-bdb6-95d0afe93f8b" style="width:62.5%" class="column"><figure id="d7e43feb-15f1-4282-b5d9-ec83421e43f7" class="image"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled.png"><img style="width:1098px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled.png"/></a></figure></div></div><h2 id="c88a07f5-394f-4082-a593-ce2eac10232e" class="">Stap 5:</h2><p id="c14c7932-c125-49b6-ac0e-7be30636a0e6" class="">Neem de onderstaande code nauwkeurig over in het ball.js bestand. Uitleg over wat hier staat komt later. </p><figure id="e44c498b-3c1c-448c-bea6-c62060fca16b" class="image" style="text-align:left"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled%201.png"><img style="width:432px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled%201.png"/></a><figcaption>Neem dit nauwkeurig over.</figcaption></figure><h2 id="21b3da5b-f10f-410d-8a61-0dfaf30744e4" class="">Stap 6:</h2><p id="2eef515e-8323-4cb5-8cb0-d8b8910a8404" class="">Verplaats je eigen code van sketch.js naar ball.js:</p><ul id="fa279ae8-63ab-4718-abdd-f9bdd82a8564" class="bulleted-list"><li style="list-style-type:disc">In de update() functie plaats je je eerder geschreven code voor het bewegen.</li></ul><ul id="db053fa2-ad9f-45cc-8fba-bd95b69371ec" class="bulleted-list"><li style="list-style-type:disc">In de display() functie plaats je je code voor het tekenen van de ball.</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="bcdf94d9-b982-4ed9-8ca8-048b3fa381e6"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Let op!</strong> Maak je gebruik van een variabele van de ball class, gebruik dan het this keyword. Dus niet: x += xDirection * speed;
+Maar: this.x += this.xDirection * this.speed;
+
+<strong>this </strong>verwijst naar de variabele van <strong>deze </strong>instance van de class. Ieder balletje heeft straks zijn eigen variabelen. Doe je dat niet dan kun je dit soort errors krijgen:<figure id="63b8983b-0a64-496f-bc62-85a72d371e6a" class="image"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled%202.png"><img style="width:543px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled%202.png"/></a></figure></div></figure><h2 id="c7b9aa53-f8aa-4904-8e44-faccb8bdd0b9" class="">Stap 7:</h2><p id="d687896e-2b00-4e0b-8c05-86385840ca99" class="">Om de code weer te laten werken pas je je sketch.js bestand aan:</p><div id="4469826a-7926-4afa-9cf9-67f9a97fbfa9" class="column-list"><div id="b3ca229d-2292-4c61-a0fb-612b03a20544" style="width:50%" class="column"><figure id="1be9f5d4-6ef0-4c1f-93b9-5062dee1455f" class="image"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled%203.png"><img style="width:487px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled%203.png"/></a></figure></div><div id="19a5d96a-5b94-4363-90f7-39d13a03589b" style="width:50%" class="column"><figure id="98dd3f1f-bb9e-469a-a7d6-c99624bf967b" class="image"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/ball_01.gif"><img style="width:240px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/ball_01.gif"/></a><figcaption>Geen perfect loopje :(</figcaption></figure></div></div><p id="edaa0b60-8863-414c-95ab-07d61eaedd83" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="74285be6-1004-4835-a437-f10ee5adf607"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Eigenlijk is er niet veel veranderd en hebben we alleen maar code verplaatst. Straks als je meer ervaring hebt begin je al met het uitdenken en aanmaken van classes, voordat je gaat programmeren en hoef je dus niet eerst je code in sketch.js te bedenken.</div></figure><h2 id="436f68d0-bba8-4cb1-beb5-006cc29b8587" class="">Uitleg</h2><figure id="ce47e1ce-8974-452f-bece-00c5669d8387" class="image"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled%204.png"><img style="width:1161px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled%204.png"/></a><figcaption>Links staat de ball class, rechts de sketch.js.</figcaption></figure><p id="d07d517f-5a82-4dc2-8709-f3d45cd8f3c5" class=""><strong>Constructor:</strong></p><p id="0ab7445a-30e3-4094-b396-0c989bdbc8b8" class="">De constructor is een soort functie die automatisch wordt uitgevoerd bij het aanmaken van een instance van de class. Deze constructor kan ook parameters hebben (hier x, y, size).</p><p id="a5048497-312c-49eb-99fc-a2f9fc420b57" class=""><strong>Variabelen:</strong></p><p id="467c22e3-6fca-4d79-aab2-910e6e230ed5" class="">Door ball.speed te gebruiken in sketch.js kom je uit bij de .speed variabele van de ball instance. Iedere ball heeft straks zijn variabelen met een eigen waarde.</p><p id="928f0bf4-738a-476d-a798-fe0ae7d586a6" class=""><strong>Functies:</strong></p><p id="5d5313d9-d22c-4898-8245-8dc197d477c5" class="">Een class kan ook functies hebben die je op dezelfde manier aanroept als variabelen.
+</p><p id="ae8f260e-6898-4615-afa3-2c1bac035704" class=""><strong>Het gebruiken van de ball class:</strong></p><figure id="0e8fee9c-6f93-4ebd-98a7-2090e8c42757" class="image"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled%205.png"><img style="width:871px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled%205.png"/></a></figure><h2 id="1105db72-584d-48c8-b007-24dbc0ef17c1" class="">Stap 7:</h2><p id="ecc2a0c2-aa3f-4a7a-8af2-450093f9228b" class="">Zorg ervoor dat je 50 instances van de ball class hebt die van links naar rechts bewegen. Iedere bal heeft een random x en y waarde.</p><ol type="1" id="65fd1ca7-6cc1-4a6e-a62b-053a38d4a0c7" class="numbered-list" start="1"><li>Maak van de ball variabele in sketch.js een array genaamd ball<span style="border-bottom:0.05em solid"><strong>s</strong></span><strong>.</strong></li></ol><ol type="1" id="553aa7e7-d9d1-4b37-9b75-a4514f168640" class="numbered-list" start="2"><li>Gebruik de .push() functie van de array in combinatie met een for loop om 50 ballen toe te voegen die allemaal op een random x en y positie starten.</li></ol><ol type="1" id="880b718d-7caa-42d9-8fe0-3c1d8cb086e4" class="numbered-list" start="3"><li>Verander de logica in je draw() om de .update() en .display() functies van iedere bal aan te roepen. Gebruik hiervoor een for loop of een foreach.</li></ol><div id="0f17154c-c59b-4e82-b2f3-3e3371e9286b" class="column-list"><div id="f8b67b41-3c38-4833-a17b-9244bae60053" style="width:62.5%" class="column"><figure id="e786584c-b54a-408e-9ddc-820ec0649b66" class="image"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled%206.png"><img style="width:384px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/Untitled%206.png"/></a><figcaption>De psuedo code</figcaption></figure></div><div id="f85c9b9c-2900-44f0-9305-05cd32b95d95" style="width:37.50000000000001%" class="column"><figure id="94388b4b-c773-4ace-8c1e-cba8c2a9435d" class="image"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/balls_04.gif"><img style="width:495px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/balls_04.gif"/></a><figcaption>50 ballen die op een random x en y positie starten.</figcaption></figure><p id="1a575d99-e699-47eb-94f8-2e2e0fb55813" class="">
+</p></div></div><h2 id="6262c665-6d1b-4988-b6e6-5721e2f18d29" class="">Stap 8:</h2><p id="89496b7a-eb64-454f-a329-1d72e15a73ed" class="">Breid je sketch uit om te oefenen met classes. Verschillende groottes en kleuren of zelfs een hele game. =)</p><div id="6552f671-7881-4d04-b66c-28e9516fda52" class="column-list"><div id="5302a212-27ae-4d3f-971b-da8098866989" style="width:50%" class="column"><figure id="6f9b06c5-5ea1-4f97-95d6-fd8661d44acf" class="image"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/balls_05.gif"><img style="width:336px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/balls_05.gif"/></a><figcaption>Verschillende size en kleuren</figcaption></figure></div><div id="269098b3-470f-4993-afd8-327f23d6ee18" style="width:50%" class="column"><figure id="266e1aed-91f9-496b-9dd1-a2024dc3f095" class="image"><a href="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/balls_06.gif"><img style="width:495px" src="Classes%20oefening%203729d312f4a9451f8a1d005335b12caf/balls_06.gif"/></a><figcaption>Verschillende richtingen en je kan klikken voor punten.</figcaption></figure></div></div><p id="fb3898d5-b8ab-407e-94d8-d3687e5fd8ae" class="">
+</p><p id="c8594b2d-4dc0-4431-ab0f-a74d7f472331" class="">
+</p><p id="63f7ff77-49e9-4986-b8ea-364c0d4077e8" class="">
+</p></div></article></body></html>
